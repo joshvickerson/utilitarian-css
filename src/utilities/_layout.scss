@@ -1,0 +1,139 @@
+//@import '_config';
+@import 'display';
+@import 'position';
+
+// Layout
+//
+// Utilitities in this module will form the bulk of the utilities you'll use in creating pages or components. They control things like positioning, sizing, display mode, etc.
+//
+// Style guide: Utilities.Layout
+@mixin layoutUtils($sizePrefix) {
+
+    @include displayUtils($sizePrefix);
+    @include posUtils($sizePrefix);
+
+    // width utilities
+    .#{$sizePrefix}width-100 {
+        width: 100%;
+    }
+
+    .#{$sizePrefix}width-75 {
+        width: 75%;
+    }
+
+    .#{$sizePrefix}width-67 {
+        width: 67%;
+    }
+
+    .#{$sizePrefix}width-50 {
+        width: 50%;
+    }
+
+    .#{$sizePrefix}width-33 {
+        width: 33%;
+    }
+
+    .#{$sizePrefix}width-25 {
+        width: 25%;
+    }
+
+    .#{$sizePrefix}width-0 {
+        width: 0;
+    }
+
+    .#{$sizePrefix}width-auto {
+        width: auto;
+    }
+
+    // opacity
+    .#{$sizePrefix}opacity-0 {
+        opacity: 0;
+    }
+
+    .#{$sizePrefix}opacity-1 {
+        opacity: 1;
+    }
+
+    // object-fit
+    .#{$sizePrefix}obj-fit-contain {
+        object-fit: contain;
+    }
+}
+
+@each $size, $value in $breakpoints {
+    @if str-length($size) > 0 {
+        $sizePrefix: '#{$size}-';
+
+        @media screen and (min-width: $value) {
+            @include layoutUtils($sizePrefix)
+        }
+    }
+
+    @else {
+        @include layoutUtils('')
+    }
+}
+
+
+// Overflow
+//
+// A series of overflow utility classes
+// 
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .overflow-hidden | overflow: hidden |
+// | .overflow-x-hidden | overflow-x: hidden |
+// | .overflow-y-hidden | overflow-y: hidden |
+// | .overflow-x-auto | overflow-x: auto |
+// | .overflow-y-auto | overflow-y: auto |
+// | .overflow-x-scroll | overflow-x: scroll |
+// | .overflow-y-scroll | overflow-y: scroll |
+// | .whitespace-nowrap | white-space: nowrap |
+//
+// Style guide: Utilities.Layout.Overflow
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden;
+}
+
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.overflow-x-scroll {
+    overflow-x: scroll;
+}
+
+.overflow-y-scroll {
+    overflow-y: scroll;
+}
+
+.overflow-x-visible {
+    overflow-x: visible;
+}
+
+.overflow-y-visible {
+    overflow-y: visible;
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
+// break out of parent container without breaking document flow
+.full-bleed {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}

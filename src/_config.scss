@@ -1,0 +1,126 @@
+// This file contains all variables and configuration options required to build Utilitarian
+
+// Breakpoints
+//
+// We use the following standard set of breakpoints and corresponding prefixes to generate size-based utilities. As often as possible, we should be using these breakpoints before any others. You may use the breakpoints in SCSS like so:
+// <code class="language-css block pad-t-8px pad-r-8px pad-b-8px pad-l-8px">
+// @media screen and (min-width: map-get($breakpoints, {breakpoint_prefix})) {<br/>
+//     CSS here<br/>
+// }<br/>
+// </code>
+// 
+// | Breakpoint prefix | Breakpoint Size |
+// |-------------------|-----------------|
+// | 'sm' | 450px |
+// | 'md' | 725px |
+// | 'lg' | 1000px |
+// | 'xl' | 1441px |
+//
+// Styleguide: Base.Breakpoints
+$breakpoints: (
+    '': '', // an empty breakpoint for "all" used to generate non-sized utilities
+    'sm': 450px,
+    'md': 725px,
+    'lg': 1000px,
+    'xl': 1441px
+);
+
+// Colors
+//
+// Colors:
+// $light-accent-gray: #f7f7f7
+// $accent-gray: #edeff0
+// $ultra-light-gray: #e0e3e9
+// $light-gray: #b2b8c6
+// $medium-gray: #757b88
+// $charcoal: #5e6065
+// $soft-black: #38393b
+// $light-blue: #d4e2fe
+// $navy-blue: #0a2463
+// $french-blue: #276dfa
+// $royal-blue: #003bd0
+// $light-purple: #e7d8f9
+// $dark-purple: #520f9a
+// $rich-purple: #7215d8
+// $light-red: #f8dae1
+// $dark-red: #981738
+// $light-green: #d8eacc
+// $dark-green: #0c4537
+// $success-green: #04a678
+// $light-error-red: #e8839c
+// $error-red: #d8305a
+// $dark-error-red: #b8294d
+// $light-orange: #fae5cc
+// $charred-orange: #3d3935
+// $rich-orange: #ff960b
+//
+// Styleguide: Base.Colors
+$light-accent-gray: #f7f7f7;
+$accent-gray: #edeff0;
+$ultra-light-gray: #e0e3e9;
+$light-gray: #b2b8c6;
+$medium-gray: #757b88;
+$charcoal: #5e6065;
+$soft-black: #38393b;
+
+$light-blue: #d4e2fe;
+$navy-blue: #0a2463;
+$french-blue: #276dfa;
+$royal-blue: #003bd0;
+
+$light-purple: #e7d8f9;
+$dark-purple: #520f9a;
+$rich-purple: #7215d8;
+
+$light-red: #f8dae1;
+$dark-red: #981738;
+
+$light-green: #d8eacc;
+$dark-green: #0c4537;
+$success-green: #04a678;
+
+$light-error-red: #e8839c;
+$error-red: #d8305a;
+$dark-error-red: #b8294d;
+
+$light-orange: #fae5cc;
+$charred-orange: #3d3935;
+$rich-orange: #ff960b;
+
+
+$marginKeys: (
+    't': 'top',
+    'r': 'right',
+    'b': 'bottom',
+    'l': 'left',
+);
+
+$colorMap: (
+    'white': #fff,
+    'black': #000,
+    'light-accent-gray': $light-accent-gray,
+    'accent-gray': $accent-gray,
+    'ultra-light-gray': $ultra-light-gray,
+    'light-gray': $light-gray,
+    'medium-gray': $medium-gray,
+    'charcoal': $charcoal,
+    'soft-black': $soft-black,
+    'light-blue': $light-blue,
+    'navy-blue': $navy-blue,
+    'french-blue': $french-blue,
+    'royal-blue': $royal-blue,
+    'light-purple': $light-purple,
+    'dark-purple': $dark-purple,
+    'rich-purple': $rich-purple,
+    'light-red': $light-red,
+    'dark-red': $dark-red,
+    'light-green': $light-green,
+    'dark-green': $dark-green,
+    'success-green': $success-green,
+    'light-error-red': $light-error-red,
+    'error-red': $error-red,
+    'dark-error-red': $dark-error-red,
+    'light-orange': $light-orange,
+    'charred-orange': $charred-orange,
+    'rich-orange': $rich-orange
+)

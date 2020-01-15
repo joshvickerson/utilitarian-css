@@ -1,0 +1,53 @@
+// Display
+//
+// responsive: true
+//
+// Utility classes for controlling the display property and element visibility
+//
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .block | display: block; |
+// | .inline | display: inline; |
+// | .inline-block | display: inline-block; |
+// | .flex | display: flex; |
+// | .grid | display: -ms-grid; <br/> display: grid; |
+// | .none | display: none; |
+// | .vis-visible | visibility: visible; |
+// | .vis-hidden | visibility: hidden; |
+//
+// Style guide: Utilities.Layout.Display
+@mixin displayUtils($sizePrefix) {
+    // display classes
+    .#{$sizePrefix}block {
+        display: block;
+    }
+
+    .#{$sizePrefix}inline {
+        display: inline;
+    }
+
+    .#{$sizePrefix}inline-block {
+        display: inline-block;
+    }
+
+    .#{$sizePrefix}flex {
+        display: flex;
+    }
+
+    .#{$sizePrefix}grid {
+        display: -ms-grid;
+        display: grid;
+    }
+
+    .#{$sizePrefix}none {
+        display: none;
+    }
+
+    .#{$sizePrefix}vis-visible {
+        visibility: visible;
+    }
+
+    .#{$sizePrefix}vis-hidden {
+        visibility: hidden;
+    }
+}

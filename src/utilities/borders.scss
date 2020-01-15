@@ -1,0 +1,108 @@
+// @import '_config';
+
+// Borders
+// 
+// responsive: true
+// 
+// Classes to control border radius, color, thickness, etc. Most classes control individual properties, though some convenience classes do exist. We generate border color classes for every color in our color list using the format <code>border-color-{color-name}</code>.
+//
+//
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .border-standard | border-width: 1px; <br/> border-style: solid; <br/> border-color: $light-gray; |
+// | .border-radius-0px | border-radius: 0px; |
+// | .border-radius-3px | border-radius: 3px; |
+// | .border-radius-4px | border-radius: 4px; |
+// | .border-radius-6px | border-radius: 6px; |
+// | .border-radius-10px | border-radius: 10px; |
+// | .border-radius-50 | border-radius: 50%; |
+// | .border-radius-100 | border-radius: 100%; |
+// | .border-solid | border-style: solid; |
+// | .border-dashed | border-style: dashed; |
+// | .border-none | border: none; |
+// | .border-1px | border-width: 1px; |
+// | .border-2px | border-width: 2px; |
+// | .border-4px | border-width: 4px; |
+// | .border-color-{color-name} | border-color: $color; |
+//
+// Style guide: Utilities.Borders
+@mixin borderUtils($sizePrefix) {
+    /**
+     * One utility for our most commonly used border
+     */
+    .#{$sizePrefix}border-standard {
+        border-width: 1px;
+        border-style: solid;
+        border-color: $light-gray;
+    }
+
+    .#{$sizePrefix}border-radius-0px {
+        border-radius: 0;
+    }
+
+    .#{$sizePrefix}border-radius-4px {
+        border-radius: 4px;
+    }
+
+    .#{$sizePrefix}border-radius-10px {
+        border-radius: 10px;
+    }
+
+    .#{$sizePrefix}border-radius-50 {
+        border-radius: 50%;
+    }
+
+    .#{$sizePrefix}border-radius-100 {
+        border-radius: 100%;
+    }
+
+    .#{$sizePrefix}border-solid {
+        border-style: solid;
+    }
+
+    .#{$sizePrefix}border-dashed {
+        border-style: dashed;
+    }
+
+    .#{$sizePrefix}border-none {
+        border: none;
+    }
+
+    // border thickness
+    .#{$sizePrefix}border-1px {
+        border-width: 1px;
+    }
+
+    .#{$sizePrefix}border-2px {
+        border-width: 2px;
+    }
+
+    .#{$sizePrefix}border-4px {
+        border-width: 4px;
+    }
+
+    @include generateBorderColorVariants($sizePrefix);
+}
+
+@mixin generateBorderColorVariants($sizePrefix) {
+    @each $colorName, $colorValue in $colorMap {
+        .#{$sizePrefix}border-color-#{$colorName} {
+            border-color: $colorValue;
+        }
+    }
+}
+
+@each $size, $value in $breakpoints {
+    @if str-length($size) > 0 {
+        $sizePrefix: '#{$size}-';
+
+        @media screen and (min-width: $value) {
+            @include borderUtils($sizePrefix)
+        }
+    }
+
+    @else {
+        @include borderUtils('')
+    }
+}
+

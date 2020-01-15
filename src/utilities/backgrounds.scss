@@ -1,0 +1,73 @@
+// @import '_config';
+
+// Backgrounds
+// 
+// responsive: true
+// 
+// Classes to control various background properties such as color, size, and position. We also generate background color classes for every color in our pallette, along with hover modified classes that can control background color on hover states.
+//
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .bg-size-cover | background-size: cover; |
+// | .bg-size-contain | background-size: contain; |
+// | .bg-pos-center | background-position: center; |
+// | .bg-repeat-no | background-repeat: no-repeat; |
+// | .bg-{color-name} | background-color: $color; |
+// | .hover:bg-{color-name} | background-color: $color; |
+//
+// Style guide: Utilities.Backgrounds
+@each $size, $value in $breakpoints {
+    @if str-length($size) > 0 {
+        @media screen and (min-width: $value) {
+            // generate size-based color classes
+            @each $colorName, $colorValue in $colorMap {
+                .#{$size}-bg-#{$colorName} {
+                    background-color: $colorValue;
+                }
+            }
+            // generate size-based background control utilities
+            .#{$size}-bg-size-cover {
+                background-size: cover;
+            }
+            .#{$size}-bg-size-contain {
+                background-size: contain;
+            }
+            .#{$size}-bg-pos-center {
+                background-position: center;
+            }
+            .#{$size}-bg-repeat-no {
+                background-repeat: no-repeat;
+            }
+        }
+    }
+    @else {
+        @each $colorName, $colorValue in $colorMap {
+            .bg-#{$colorName} {
+                background-color: $colorValue;
+                transition: background-color 0.3s ease-in-out; // TODO: don't mix these, should be separate utilities but for hover states
+            }
+            .hover\:bg-#{$colorName}:hover {
+                background-color: $colorValue;
+            }
+        }
+        .bg-size-cover {
+            background-size: cover;
+        }
+        .bg-size-contain {
+            background-size: contain;
+        }
+        .bg-pos-center {
+            background-position: center;
+        }
+        .bg-repeat-no {
+            background-repeat: no-repeat;
+        }
+    }
+}
+// gradient backgrounds
+.bg-grad-blue-green {
+    background-image: linear-gradient(to right, $french-blue, $success-green);
+}
+.bg-grad-blue-purple {
+    background-image: linear-gradient(to right, $french-blue, $rich-purple);
+}

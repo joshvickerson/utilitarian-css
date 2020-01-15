@@ -1,0 +1,78 @@
+
+// Position
+//
+// responsive: true
+//
+// Utility classes for controlling the position property, as well as common positioning values and alignment
+//
+//
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .relative | position: relative; |
+// | .absolute | position: absolute; |
+// | .fixed | position: fixed; |
+// | .sticky | position: sticky; |
+// | .top-0 | top: 0; |
+// | .right-0 | right: 0; |
+// | .bottom | bottom: 0; |
+// | .left | left: 0; |
+// | .v-align-top | vertical-align: top; |
+// | .v-align-middle | vertical-align: middle; |
+// | .v-align-bottom | vertical-align: bottom; |
+// | .float-left | float: left; |
+// | .float-right | float: right; |
+//
+// Style guide: Utilities.Layout.Position
+@mixin posUtils($sizePrefix) {
+    .#{$sizePrefix}relative {
+        position: relative;
+    }
+    
+    .#{$sizePrefix}absolute {
+        position: absolute;
+    }
+    
+    .#{$sizePrefix}fixed {
+        position: fixed;
+    }
+    
+    .#{$sizePrefix}sticky {
+        position: sticky;
+    }
+    
+    .#{$sizePrefix}top-0 {
+        top: 0;
+    }
+    
+    .#{$sizePrefix}right-0 {
+        right: 0;
+    }
+   
+    .#{$sizePrefix}bottom-0 {
+        bottom: 0;
+    }
+    
+    .#{$sizePrefix}left-0 {
+        left: 0;
+    }
+
+    .#{$sizePrefix}v-align-top {
+        vertical-align: top;
+    }
+
+    .#{$sizePrefix}v-align-middle {
+        vertical-align: middle;
+    }
+
+    .#{$sizePrefix}v-align-bottom {
+        vertical-align: bottom;
+    }
+
+    .#{$sizePrefix}float-left {
+        float: left;
+    }
+
+    .#{$sizePrefix}float-right {
+        float: right;
+    }
+}

@@ -1,0 +1,88 @@
+// @import '_config';
+
+// Spacing
+//
+// responsive: true
+//
+// We generate margin and padding utilities along a scale: 0px, 4px and increments of 8px up to 120px. Directions are abbreviated, t = top, r = right, b = bottom, l = left.
+// The table below shows some examples.
+//
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .pad-t-0px | padding-top: 0px; |
+// | .pad-r-0px | padding-right: 0px; |
+// | .pad-b-0px | padding-bottom: 0px; |
+// | .pad-l-0px | padding-left: 0px; |
+// | .pad-t-4px | padding-top: 4px; |
+// | .pad-r-4px | padding-right: 4px; |
+// | .pad-b-4px | padding-bottom: 4px; |
+// | .pad-l-4px | padding-left: 4px; |
+// | .margin-t-8px | margin-top: 8px; |
+// | .margin-r-8px | margin-right: 8px; |
+// | .margin-b-8px | margin-bottom: 8px; |
+// | .margin-l-8px | margin-left: 8px; |
+// | ...           | ...              |
+// | .margin-t-120px | margin-top: 120px; |
+// | .margin-r-120px | margin-right: 120px; |
+// | .margin-b-120px | margin-bottom: 120px; |
+// | .margin-l-120px | margin-top: 120px; |
+// #### Non-Unit Classes
+// We also generate margin utilities with an auto value, as well as some convenience classes for things like centering.
+//
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .margin-t-auto | margin-top: auto; |
+// | .margin-r-auto | margin-right: auto; |
+// | .margin-b-auto | margin-bottom: auto; |
+// | .margin-l-auto | margin-left: auto; |
+// | .margin-center | margin-left: auto; <br/> margin-right: auto; |
+// | .margin-auto | margin: auto; |
+// | .margin-0px | margin: 0px; |
+//
+//
+// Style guide: Utilities.Spacing
+@mixin generateSpacingVariants($sizePrefix) {
+    @each $key, $full-name in $marginKeys {
+        @each $number in $size-values {
+            .#{$sizePrefix}margin-#{$key}-#{$number}px {
+                margin-#{$full-name}: #{$number}px;
+            }
+
+            .#{$sizePrefix}pad-#{$key}-#{$number}px {
+                padding-#{$full-name}: #{$number}px;
+            }
+        }
+        .#{$sizePrefix}margin-#{$key}-auto {
+            margin-#{$full-name}: auto;
+        }
+    }
+
+    .#{$sizePrefix}margin-auto {
+        margin: auto;
+    }
+
+    .#{$sizePrefix}margin-center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// margin and padding generator
+$size-values: 0 4; //special values included here.
+
+// loop to add multiples of 8, up to 120
+@for $i from 1 through 15 {
+    $size-values: append($size-values, $i * 8);
+}
+ 
+@each $size, $value in $breakpoints {
+    @if str-length($size) > 0 {
+        @media screen and (min-width: $value) {   
+            $sizePrefix: '#{$size}-';
+            @include generateSpacingVariants($sizePrefix)
+        }
+    }
+    @else {
+        @include generateSpacingVariants('');
+    }
+}

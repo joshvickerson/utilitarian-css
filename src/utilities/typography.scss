@@ -1,0 +1,270 @@
+@import '_config';
+
+// Typography
+//
+// Utility classes for controlling type (fonts). At the most basic, we can set serif or sans-serif fonts.
+// 
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .font-serif | font-family: 'Minion', serif; |
+// | .font-sans-serif | font-family: 'Lato', sans-serif; |
+//
+// Style guide: Utilities.Typography
+
+// serif font stack
+.font-serif {
+    font-family: 'Minion', serif;
+}
+
+// sans-serif font stack
+.font-sans-serif {
+    font-family: 'Lato', sans-serif;
+}
+
+// font-sizes
+@mixin fontUtils($sizePrefix) {
+    // Sizes
+    // 
+    // responsive: true
+    // 
+    // warn: Other sizes than this scale do exist throughout the application, but we should aim to remove them if possible, or codify them into the preferred scale. For this reason, you will see font-size classes used despite not being documented here
+    // 
+    // Classes for setting font sizes. Standard font sizes are listed here and this is the preferred type scale.
+    // 
+    // | Class Name       | CSS Values       |
+    // |------------------|------------------|
+    // | .font-size-14px | font-size: 14px; |
+    // | .font-size-16px | font-size: 16px; |
+    // | .font-size-20px | font-size: 20px; |
+    // | .font-size-24px | font-size: 24px; |
+    // | .font-size-36px | font-size: 36px; |
+    // | .font-size-48px | font-size: 48px; |
+    // | .font-size-64px | font-size: 64px; |
+    // 
+    // Style guide: Utilities.Typography.Sizes
+    .#{$sizePrefix}font-size-10px {
+        font-size: 10px !important;
+    }
+    
+    .#{$sizePrefix}font-size-14px {
+        font-size: 14px;
+    }
+    
+    .#{$sizePrefix}font-size-15px {
+        font-size: 15px !important;
+    }
+
+    .#{$sizePrefix}font-size-16px {
+        font-size: 16px;
+    }
+    
+    .#{$sizePrefix}font-size-18px {
+        font-size: 18px;
+    }
+
+    .#{$sizePrefix}font-size-20px {
+        font-size: 20px;
+    }
+
+    .#{$sizePrefix}font-size-24px {
+        font-size: 24px;
+    }
+
+    .#{$sizePrefix}font-size-28px {
+        font-size: 28px;
+    }
+    
+    .#{$sizePrefix}font-size-30px {
+        font-size: 30px;
+    }
+
+    .#{$sizePrefix}font-size-36px {
+        font-size: 36px;
+    }
+    
+    .#{$sizePrefix}font-size-38px {
+        font-size: 38px;
+    }
+
+    .#{$sizePrefix}font-size-48px {
+        font-size: 48px;
+    }
+
+    .#{$sizePrefix}font-size-60px {
+        font-size: 60px;
+    }
+
+    .#{$sizePrefix}font-size-64px {
+        font-size: 64px;
+    }
+
+    // Line Height
+    // 
+    // responsive: true
+    // 
+    // Info: Line height classes are mostly unitless which is not considered a good modern practice among some typography nerds. Worth exploring improving this at some point.
+    // 
+    // Classes for setting line height.
+    // 
+    // | Class Name       | CSS Values       |
+    // |------------------|------------------|
+    // | .line-height-1 | line-height: 1; |
+    // | .line-height-1_2 | line-height: 1.2; |
+    // | .line-height-1_5 | line-height: 1.5; |
+    // | .line-height-2 | line-height: 2; |
+    // | .line-height-24px | line-height: 24px; |
+    // 
+    // Style guide: Utilities.Typography.Line Height
+    .#{$sizePrefix}line-height-1 {
+        line-height: 1;
+    }
+
+    .#{$sizePrefix}line-height-1_2 {
+        line-height: 1.2;
+    }
+
+    .#{$sizePrefix}line-height-1_5 {
+        line-height: 1.5;
+    }
+
+    .#{$sizePrefix}line-height-2 {
+        line-height: 2;
+    }
+
+    .#{$sizePrefix}line-height-24px {
+        line-height: 24px;
+    }
+
+    // Alignment
+    // 
+    // responsive: true
+    // 
+    // Classes for setting text alignment
+    // 
+    // | Class Name       | CSS Values       |
+    // |------------------|------------------|
+    // | .text-align-left | text-align: left; |
+    // | .text-align-center | text-align: center; |
+    // | .text-align-right | text-align: right; |
+    // 
+    // Style guide: Utilities.Typography.Alignment
+    .#{$sizePrefix}text-align-left {
+        text-align: left !important; // TODO: eliminate use of !important
+    }
+
+    .#{$sizePrefix}text-align-center {
+        text-align: center;
+    }
+
+    .#{$sizePrefix}text-align-right {
+        text-align: right;
+    }
+}
+
+@each $size, $value in $breakpoints {
+    @if str-length($size) > 0 {
+        $sizePrefix: '#{$size}-';
+
+        @media screen and (min-width: $value) {
+            @include fontUtils($sizePrefix)
+        }
+    }
+
+    @else {
+        @include fontUtils('')
+    }
+}
+
+// Weight
+// 
+// Classes for setting font weight. We use numbered weights which are expressed as multiples of 100. We drop the 0s for convenience.
+// 
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .font-w-1 | font-weight: 100; |
+// | .font-w-2 | font-weight: 200; |
+// | .font-w-3 | font-weight: 300; |
+// | .font-w-4 | font-weight: 400; |
+// | .font-w-5 | font-weight: 500; |
+// | .font-w-6 | font-weight: 600; |
+// | .font-w-7 | font-weight: 700; |
+// | .font-w-8 | font-weight: 800; |
+// | .font-w-9 | font-weight: 900; |
+// 
+// Style guide: Utilities.Typography.Weight
+@for $i from 1 through 9 {
+    .font-w-#{$i} {
+        font-weight: $i * 100;
+    }
+}
+
+// Style
+// 
+// Classes for setting font / text style and decoration.
+// 
+// | Class Name       | CSS Values       |
+// |------------------|------------------|
+// | .font-italic | font-style: italic; |
+// | .font-underline | text-decoration: underline; |
+// | .font-no-underline | text-decoration: none; |
+// 
+// Style guide: Utilities.Typography.Style
+.font-italic {
+    font-style: italic;
+}
+.font-underline {
+    text-decoration: underline;
+}
+.font-no-underline {
+    text-decoration: none;
+}
+
+@mixin generateColorVariants($sizePrefix) {
+    @each $colorName, $colorValue in $colorMap {
+        .#{$sizePrefix}font-#{$colorName} {
+            color: $colorValue;
+        }
+    }
+}
+
+// font colors
+@each $size, $value in $breakpoints {
+    @if str-length($size) > 0 {
+        @media screen and (min-width: $value) {   
+            $sizePrefix: '#{$size}-';
+            @include generateColorVariants($sizePrefix)
+        }
+    }
+    @else {
+        @include generateColorVariants('');
+    }
+}
+
+// hover color styles
+.hover\:font-royal-blue:hover {
+    color: $royal-blue;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-overflow-ellipsis {
+    text-overflow: ellipsis;
+}
+
+.word-break-keep {
+    word-break: keep-all;
+}
+
+.word-break-all {
+    word-break: break-all;
+}

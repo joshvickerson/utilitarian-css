@@ -1,0 +1,201 @@
+
+// Flexbox
+//
+// Utility classes for controlling flex containers and their child elements.
+//
+// Style guide: Utilities.Flexbox
+@mixin flexUtils($sizePrefix) {
+    // Alignment
+    // 
+    // responsive: true
+    // 
+    // Utilities to control flex item and content alignment
+    // 
+    // | Class Name       | CSS Values       |
+    // |------------------|------------------|
+    // | .align-items-start | align-items: flex-start; |
+    // | .align-items-center | align-items: center; |
+    // | .align-items-end | align-items: flex-end; |
+    // | .align-items-stretch | align-items: stretch; |
+    // | .align-content-start | align-content: flex-start; |
+    // | .align-content-center | align-content: center; |
+    // | .align-content-end | align-content: flex-end; |
+    // | .align-self-stretch | align-self: stretch; |
+    // | .align-self-center | align-self: center; |
+    // | .justify-items-start | justify-items: flex-start; |
+    // | .justify-items-center | justify-items: center; |
+    // | .justify-items-end | justify-items: flex-end; |
+    // | .justify-content-start | justify-content: flex-start; |
+    // | .justify-content-center | justify-content: center; |
+    // | .justify-content-end | justify-content: flex-end; |
+    // | .justify-content-space-around | justify-content: space-around; |
+    // | .justify-content-space-between | justify-justify-content: space-between; |
+    // 
+    // Style guide: Utilities.Flexbox.Alignment
+    .#{$sizePrefix}align-items-start {
+        align-items: flex-start;
+    }
+
+    .#{$sizePrefix}align-items-center {
+        align-items: center;
+    }
+
+    .#{$sizePrefix}align-items-end {
+        align-items: flex-end;
+    }
+
+    .#{$sizePrefix}align-items-stretch {
+        align-items: stretch;
+    }
+
+    .#{$sizePrefix}align-content-start {
+        align-content: flex-start;
+    }
+
+    .#{$sizePrefix}align-content-center {
+        align-content: center;
+    }
+
+    .#{$sizePrefix}align-content-end {
+        align-content: flex-end;
+    }
+
+    .#{$sizePrefix}align-self-stretch {
+        align-self: stretch;
+    }
+
+    .#{$sizePrefix}align-self-center {
+        align-self: center;
+    }
+
+    .#{$sizePrefix}justify-items-start {
+        justify-items: flex-start;
+    }
+
+    .#{$sizePrefix}justify-items-center {
+        justify-items: center;
+    }
+
+    .#{$sizePrefix}justify-items-end {
+        justify-items: flex-end;
+    }
+
+    .#{$sizePrefix}justify-content-start {
+        justify-content: flex-start;
+    }
+
+    .#{$sizePrefix}justify-content-center {
+        justify-content: center;
+    }
+
+    .#{$sizePrefix}justify-content-end {
+        justify-content: flex-end;
+    }
+
+    .#{$sizePrefix}justify-content-space-around {
+        justify-content: space-around;
+    }
+
+    .#{$sizePrefix}justify-content-space-between {
+        justify-content: space-between;
+    }
+
+    // Direction & Wrapping
+    // 
+    // responsive: true
+    // 
+    // Utilities to control flex direction
+    // 
+    // | Class Name       | CSS Values       |
+    // |------------------|------------------|
+    // | .flex-dir-row | flex-direction: row; |
+    // | .flex-dir-row-rev | flex-direction: row-reverse; |
+    // | .flex-dir-col | flex-direction: column; |
+    // | .flex-dir-col-rev | flex-direction: column-reverse; |
+    // | .flex-wrap | flex-wrap: wrap; |
+    // | .flex-wrap-no | flex-wrap: nowrap; |
+    // 
+    // Style guide: Utilities.Flexbox.Direction & Wrapping
+    .#{$sizePrefix}flex-dir-row {
+        flex-direction: row;
+    }
+
+    .#{$sizePrefix}flex-dir-row-rev {
+        flex-direction: row-reverse;
+    }
+
+    .#{$sizePrefix}flex-dir-col {
+        flex-direction: column;
+    }
+
+    .#{$sizePrefix}flex-dir-col-rev {
+        flex-direction: column-reverse;
+    }
+
+    // wrapping
+    .#{$sizePrefix}flex-wrap {
+        flex-wrap: wrap;
+    }
+
+    .#{$sizePrefix}flex-wrap-no {
+        flex-wrap: nowrap;
+    }
+
+    // Sizing
+    // 
+    // responsive: true
+    // 
+    // Utilities for common flex size ratios.
+    // 
+    // info: Unsure if it's wise to set both flex-grow and flex-shrink this way. We may want to consider separating these into the different properties.
+    // 
+    // | Class Name       | CSS Values       |
+    // |------------------|------------------|
+    // | .flex-100 | flex: 1 1 100%; |
+    // | .flex-75 | flex: 1 1 75%; |
+    // | .flex-67 | flex: 1 1 67%; |
+    // | .flex-50 | flex: 1 1 50%; |
+    // | .flex-33 | flex: 1 1 33%; |
+    // | .flex-25 | flex: 1 1 25%; |
+    // | .flex-auto | flex: 1 1 auto; |
+    // 
+    // Style guide: Utilities.Flexbox.Sizing
+    .#{$sizePrefix}flex-100 {
+        flex: 1 1 100%;
+    }
+
+    .#{$sizePrefix}flex-75 {
+        flex: 1 1 75%;
+    }
+
+    .#{$sizePrefix}flex-67 {
+        flex: 1 1 67%;
+    }
+
+    .#{$sizePrefix}flex-50 {
+        flex: 1 1 50%;
+    }
+
+    .#{$sizePrefix}flex-33 {
+        flex: 1 1 33%;
+    }
+
+    .#{$sizePrefix}flex-auto {
+        flex: 1 1 auto;
+    }
+}
+
+
+@each $size, $value in $breakpoints {
+    @if str-length($size) > 0 {
+        $sizePrefix: '#{$size}-';
+
+        @media screen and (min-width: $value) {
+            @include flexUtils($sizePrefix)
+        }
+    }
+
+    @else {
+        @include flexUtils('')
+    }
+}

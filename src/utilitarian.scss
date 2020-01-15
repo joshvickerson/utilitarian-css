@@ -1,0 +1,11 @@
+// Start by importing the config which contains all required variables and options
+@import '_config';
+// we import major "modules" which are indicated by the preceding _ in the name
+@import 'utilities/_interaction';
+@import 'utilities/_layout';
+@import 'utilities/backgrounds';
+@import 'utilities/borders';
+@import 'utilities/flexbox';
+@import 'utilities/position';
+@import 'utilities/spacing';
+@import 'utilities/typography';
