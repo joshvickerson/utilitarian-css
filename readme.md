@@ -34,7 +34,7 @@ Below is a running list of improvements I'd like to make (in no particular order
 - [ ] Create a typographic scale that doesn't rely on pixel sizing
 - [ ] Validate choice of breakpoint sizes through more comprehensive research
 - [ ] Explore source structure improvements to reduce output size (e.g. can the output contain fewer repeat breakpoints?)
-- [ ] Create more components that don't require JS to function
+- [ ] Include standard component styles
 - [ ] Documentation improvements (i.e. more than the introductory list here)
     - [ ] More detailed KSS comments
     - [ ] Nicer output from KSS-node and a hosted docs site
