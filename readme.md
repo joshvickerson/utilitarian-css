@@ -29,9 +29,7 @@ gulp.task('purgecss', function () {
 
 Below is a running list of improvements I'd like to make (in no particular order). Want to help? Submit a PR!
 
-- [ ] Replace color palette with better defaults
-    - [ ] Change defaults from ThankView's color pallette
-    - [ ] Don't use named colors but more purpose-driven names (e.g. "color primary")
+- [ ] Replace color palette with better defaults [#1](https://github.com/joshvickerson/utilitarian/issues/1)
 - [ ] Improve the set of flex and grid utility classes
 - [ ] Create a typographic scale that doesn't rely on pixel sizing
 - [ ] Validate choice of breakpoint sizes through more comprehensive research
