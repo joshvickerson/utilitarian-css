@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "CSS utility and component library for small projects written in SCSS",
   "scripts": {
-    "doc": "echo \"Error: no test specified\" && exit 1"
+    "doc": "node ./node_modules/.bin/kss --config ./kss-config.json"
   },
   "repository": {
     "type": "git",

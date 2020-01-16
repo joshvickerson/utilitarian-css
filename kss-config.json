@@ -1,0 +1,10 @@
+{
+    "title": "Utilitarian Docs",
+    "source": "./src/",
+    "destination": "./docs/",
+    "homepage": "../docs-homepage.md",
+    "custom": ["responsive", "warn", "info"],
+    "css": [
+        "./build/utilitarian.css"
+    ]
+}
