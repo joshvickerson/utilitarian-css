@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "CSS utility and component library for small projects written in SCSS",
   "scripts": {
-    "doc": "node ./node_modules/.bin/kss --config ./kss-config.json"
+    "doc": "node ./node_modules/.bin/kss --config ./kss-config.json",
+    "test": "echo \"No test specified\""
   },
   "repository": {
     "type": "git",
