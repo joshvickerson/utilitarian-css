@@ -19,7 +19,7 @@
   "author": "Josh Vickerson",
   "license": "MIT",
   "files": [
-    "dist/"
+    "/dist"
   ],
   "bugs": {
     "url": "https://github.com/joshvickerson/utilitarian-css/issues"
