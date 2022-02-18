@@ -1,5 +1,5 @@
 {
-  "name": "utilitarian",
+  "name": "utilitarian-css",
   "version": "0.1.0",
   "description": "CSS utility and component library for small projects written in SCSS",
   "scripts": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/joshvickerson/utilitarian.git"
+    "url": "git+https://github.com/joshvickerson/utilitarian-css.git"
   },
   "keywords": [
     "CSS",
@@ -18,9 +18,9 @@
   "author": "Josh Vickerson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/joshvickerson/utilitarian/issues"
+    "url": "https://github.com/joshvickerson/utilitarian-css/issues"
   },
-  "homepage": "https://github.com/joshvickerson/utilitarian#readme",
+  "homepage": "https://github.com/joshvickerson/utilitarian-css#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-cssnano": "^2.1.3",
